@@ -1,6 +1,6 @@
 import { Tarifa } from '../tarifa/tarifa';
 
-export class servicio {
+export class Servicio {
   idServicio: number;
   placa: string;
   tipoVehiculo: string;

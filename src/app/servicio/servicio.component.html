@@ -23,5 +23,29 @@
     <div class="form-group">
       <button type="submit" class="btn btn-primary">Ingresar vehiculo</button>
     </div>
+      <div class="card border-primary mb-3" style="max-width: 100%;">
+      <div class="card-header">Vehiculos estacionados</div>
+      <div class="card-body text-primary">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Placa</th>
+              <th scope="col">Tipo Vehiculo</th>
+              <th scope="col">Cilindraje</th>
+              <th scope="col">Fecha Ingreso</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let servicio of servicios">
+              <td>{{ servicio.placa }}</td>
+              <td>{{ servicio.tipoVehiculo }}</td>
+              <td>{{ servicio.cilindraje }}</td>
+              <td>{{ servicio.fechaIngreso|date:'dd-MM-yyyy HH:mm:ss' }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
+
 </form>

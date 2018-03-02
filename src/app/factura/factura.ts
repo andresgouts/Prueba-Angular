@@ -1,4 +1,4 @@
-import { servicio } from '../servicio/servicio';
+import { Servicio } from '../servicio/servicio';
 
 export class factura {
   idFactura: number;
@@ -7,5 +7,5 @@ export class factura {
   subtotal: number;
   valorOtrosConceptos: number;
   totalFactura: number;
-  servicio: servicio;
+  servicio: Servicio
 }
