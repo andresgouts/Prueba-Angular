@@ -38,7 +38,28 @@ export class ServicioComponent {
          swal(this.mensaje);
       }
      );
-
    }
+
+   public facturarVehiculo(servicio: Servicio): void {
+     swal({
+       title: `Esta seguro?`,
+       text: `se facturara el vehiculo de placas ${servicio.placa}`,
+       type: 'warning',
+       showCancelButton: true,
+       confirmButtonColor: '#3085d6',
+       cancelButtonColor: '#d33',
+       cancelButtonText: 'Cancelar',
+       confirmButtonText: 'si, facturar!'
+     }).then((result) => {
+       if (result.value) {
+         this.servicioService.facturarVehiculo(servicio.placa).subscribe(
+           data => {this.mensaje = data;
+             swal(this.mensaje);
+             this.cargarVehiculos;
+            }
+         );
+       }
+     })
+    }
 
 }

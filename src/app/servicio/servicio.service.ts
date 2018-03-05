@@ -9,6 +9,7 @@ import { map } from 'rxjs/operators';
 export class ServicioService {
   private urlEndPointLista: string = 'http://localhost:8080/vigilante/consultar'
   private urlEndPointIngresar: string = 'http://localhost:8080/vigilante/ingresar'
+  private urlEndPointFacturar: string = 'http://localhost:8080/vigilante/sacar'
   private httpHeaders = new HttpHeaders({'content-type':'application/json'})
 
   constructor(private http:HttpClient){
@@ -25,6 +26,10 @@ export class ServicioService {
   crearServicio(servicio: Servicio): Observable<string>{
     console.log('ingreso')
     return this.http.post(this.urlEndPointIngresar, servicio, {responseType: 'text'})
+  }
+
+  facturarVehiculo(placa): Observable<string>{
+    return this.http.get(`${this.urlEndPointFacturar}/${placa}`, {responseType: 'text'})
   }
 
 }

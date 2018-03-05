@@ -20,10 +20,10 @@
         placeholder="650" [(ngModel)]="servicio.cilindraje"/>
 
     </div>
-    <div class="form-group">
-      <button type="submit" class="btn btn-primary">Ingresar vehiculo</button>
+    <div class="form-group right">
+      <button type="submit" class="btn btn-primary pull-right">Ingresar vehiculo</button>
     </div>
-      <div class="card border-primary mb-3" style="max-width: 100%;">
+    <div class="card border-primary mb-3" style="max-width: 100%;">
       <div class="card-header">Vehiculos estacionados</div>
       <div class="card-body text-primary">
         <table class="table table-striped">
@@ -33,6 +33,7 @@
               <th scope="col">Tipo Vehiculo</th>
               <th scope="col">Cilindraje</th>
               <th scope="col">Fecha Ingreso</th>
+              <th scope="col"></th>
             </tr>
           </thead>
           <tbody>
@@ -41,6 +42,9 @@
               <td>{{ servicio.tipoVehiculo }}</td>
               <td>{{ servicio.cilindraje }}</td>
               <td>{{ servicio.fechaIngreso|date:'dd-MM-yyyy HH:mm:ss' }}</td>
+              <td>
+                <button type="button" name="facturar" (click)='facturarVehiculo(servicio)' class="btn btn-danger btn-sm">Facturar</button>
+              </td>
             </tr>
           </tbody>
         </table>
