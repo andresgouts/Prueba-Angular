@@ -3,6 +3,7 @@ import { Servicio } from './servicio';
 import { ServicioService } from './servicio.service'
 import { Observable } from 'rxjs/Observable'
 import { Router } from '@angular/router'
+import swal from 'sweetalert2'
 
 @Component({
   selector: 'app-servicio',
@@ -13,13 +14,17 @@ export class ServicioComponent {
   titulo:String = 'Ingresar Vehiculo';
   servicios: Servicio[];
   servicio: Servicio = new Servicio();
-  mensaje: String = 'No ha cambiado';
+  mensaje: string;
 
   constructor(private servicioService: ServicioService, private router: Router){
 
    }
 
    ngOnInit() {
+     this.cargarVehiculos()
+   }
+
+   public cargarVehiculos(): void {
      this.servicioService.getServiciosActivos().subscribe(
        servicios => this.servicios = servicios
      );
@@ -27,9 +32,13 @@ export class ServicioComponent {
 
    public crear(): void{
      this.servicioService.crearServicio(this.servicio).subscribe(
-      Response => this.router.navigate(['/servicio'])
+      data => {this.mensaje = data;
+         this.servicio = new Servicio();
+         this.cargarVehiculos();
+         swal(this.mensaje);
+      }
      );
-     console.log(this.mensaje);
+
    }
 
 }

@@ -8,13 +8,16 @@ import { FooterComponent } from './footer/footer.component';
 import { ServicioComponent } from './servicio/servicio.component';
 import { FacturaComponent } from './factura/factura.component';
 import { ServicioService } from './servicio/servicio.service';
+import { FacturaService } from './factura/factura.service';
 import {FormsModule} from '@angular/forms';
+
 
 
 const routes: Routes = [
   {path: '', redirectTo: '/servicio', pathMatch: 'full'},
   {path: 'servicio', component: ServicioComponent},
   {path: 'factura', component: FacturaComponent},
+  {path: 'factura/:placa', component: FacturaComponent},
 ];
 
 
@@ -33,7 +36,8 @@ const routes: Routes = [
     RouterModule.forRoot(routes)
   ],
   providers: [
-    ServicioService
+    ServicioService,
+    FacturaService
   ],
   bootstrap: [AppComponent]
 })
