@@ -1,23 +1,26 @@
-<form>
+<form (ngSubmit) = "crear()">
   <div class="container">
     <h1>{{ titulo }}</h1>
+    <div class="alert alert-primary" role="alert">
+      {{mesnaje}}
+    </div>
     <div class="form-group"> <!-- placa -->
         <label for="imputPlaca" class="control-label">Placa</label>
-        <input type="text" class="form-control" id="imputPlaca" name="imputPlaca"
-        placeholder="AAA123"/>
+        <input type="text" class="form-control" id="imputPlaca"
+        placeholder="AAA123" maxlength="6" name="placa" [(ngModel)]="servicio.placa"/>
 
     </div>
     <div class="form-group"> <!-- tipo de vehiculo -->
       <label for="inputState">Tipo Vehiculo</label>
-      <select id="inputState" class="form-control">
-        <option value="c">Carro</option>
-        <option value="m">Moto</option>
+      <select id="inputState" class="form-control" [(ngModel)]="servicio.tipoVehiculo" name="tipoVehiculo">
+        <option value="carro">carro</option>
+        <option value="moto">moto</option>
       </select>
     </div>
     <div class="form-group"> <!-- cilindraje -->
         <label for="imputCilindraje" class="control-label">Cilindraje</label>
         <input type="text" class="form-control" id="imputCilindraje" name="imputCilindraje"
-        placeholder="650"/>
+        placeholder="650" [(ngModel)]="servicio.cilindraje"/>
 
     </div>
     <div class="form-group">

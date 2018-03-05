@@ -8,6 +8,7 @@ import { FooterComponent } from './footer/footer.component';
 import { ServicioComponent } from './servicio/servicio.component';
 import { FacturaComponent } from './factura/factura.component';
 import { ServicioService } from './servicio/servicio.service';
+import {FormsModule} from '@angular/forms';
 
 
 const routes: Routes = [
@@ -27,6 +28,7 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     HttpClientModule,
     RouterModule.forRoot(routes)
   ],
